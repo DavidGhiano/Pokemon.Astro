@@ -1,15 +1,10 @@
 ---
-import type { Result } from "../../interfaces/pokemon-list.response";
-import type { Pokemon } from "../../interfaces/pokemon.response.ts";
 interface Props {
     url: string;
     name: string;
     isBig?: boolean;
 }
 const { name, url, isBig = false } = Astro.props;
-const resp = await fetch(url);
-const data = (await resp.json()) as Pokemon;
-
 const id = url.split("/").at(-2);
 const imageSrc = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${id}.png`;
 ---
